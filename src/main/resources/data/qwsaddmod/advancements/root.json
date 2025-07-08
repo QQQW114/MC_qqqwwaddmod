@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:poop"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.root.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.root.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

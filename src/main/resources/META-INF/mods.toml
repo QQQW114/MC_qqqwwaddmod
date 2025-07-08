@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[47,)"  # 匹配 Forge 47.x 版本
+
+license="All rights reserved"
+
+[[mods]]
+modId="qwsaddmod"
+version="1.0.0"
+displayName="QWSAdd Mod"
+authors="QQQQWW"
+description='''
+我的第一个Minecraft模组
+'''
+
+[[dependencies.qwsaddmod]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"  # 47+ 范围
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.qwsaddmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="NONE"
+side="BOTH"

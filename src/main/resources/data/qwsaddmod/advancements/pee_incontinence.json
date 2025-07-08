@@ -1,0 +1,23 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:pee_bucket"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.pee_incontinence.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.pee_incontinence.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "incontinence": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

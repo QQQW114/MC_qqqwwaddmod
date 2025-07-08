@@ -1,0 +1,23 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:poop"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.poop_incontinence.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.poop_incontinence.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "incontinence": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

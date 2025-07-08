@@ -1,0 +1,23 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:bottle_of_pee"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.drink_pee.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.drink_pee.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "drunk": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

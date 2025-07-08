@@ -1,0 +1,23 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:poop"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.eat_poop.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.eat_poop.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "eaten": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

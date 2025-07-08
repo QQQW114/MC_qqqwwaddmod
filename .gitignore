@@ -1,0 +1,22 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Gradle
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+
+# Minecraft Forge/NeoForge specific
+/run/
+/runs/
+/logs/
+/eclipse/
+/out/
+/user_jvm_args.txt
+
+# OS generated files
+.DS_Store
+Thumbs.db
