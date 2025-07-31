@@ -1,0 +1,37 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:poop_jetpack"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.craft_poop_jetpack.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.craft_poop_jetpack.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_poop_jetpack": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "qwsaddmod:poop_jetpack"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_poop_jetpack"
+    ]
+  ]
+}

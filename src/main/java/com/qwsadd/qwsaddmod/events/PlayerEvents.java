@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -37,16 +38,20 @@ public class PlayerEvents {
         if (player.isCreative() || player.isSpectator()) {
             return;
         }
-        if (player.tickCount % PASSIVE_PEE_INTERVAL == 0) {
-            player.getCapability(QwsaddModMain.PEE_CAPABILITY).ifPresent(peeCap -> {
-                peeCap.addPeeLevel(10);
-                if (peeCap.isPeeFull()) {
-                    triggerIncontinencePenalty(player, "pee");
-                } else {
-                    QwsaddModMain.NETWORK_CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new PeeLevelPacket(peeCap.getPeeLevel()));
-                }
-            });
+        // ==================== ↓↓↓ 新增代码开始 ↓↓↓ ====================
+        // 喷气背包安全检查
+        // 检查玩家是否穿着喷气背包
+        boolean isWearingJetpack = player.getItemBySlot(EquipmentSlot.CHEST).is(ItemInit.POOP_JETPACK.get());
+
+        // 如果玩家没有穿喷气背包，但他的mayfly能力是true（即可以飞行）
+        if (!isWearingJetpack && player.getAbilities().mayfly) {
+            // 强制关闭飞行能力
+            player.getAbilities().mayfly = false;
+            player.getAbilities().flying = false;
+            // 同步能力到客户端
+            player.onUpdateAbilities();
         }
+        // ==================== ↑↑↑ 新增代码结束 ↑↑↑ ====================
     }
 
     @SubscribeEvent

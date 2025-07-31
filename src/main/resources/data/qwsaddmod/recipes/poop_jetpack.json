@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PDP",
+    "UCU",
+    "PBP"
+  ],
+  "key": {
+    "P": {
+      "item": "qwsaddmod:poop"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "U": {
+      "item": "qwsaddmod:bottle_of_pee"
+    },
+    "C": {
+      "item": "minecraft:iron_chestplate"
+    },
+    "B": {
+      "item": "qwsaddmod:poop_block"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:poop_jetpack"
+  }
+}

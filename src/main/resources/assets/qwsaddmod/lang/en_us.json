@@ -1,30 +1,38 @@
 {
   "creativetab.qwsaddmod": "QWSAdd Mod",
   "key.categories.qwsaddmod": "QWSAdd Mod",
-  "key.qwsaddmod.poop": "Poop",
-  "key.qwsaddmod.pee": "Pee",
+  "key.qwsaddmod.poop": "Excrete",
+  "key.qwsaddmod.pee": "Urinate",
 
   "item.qwsaddmod.poop": "Poop",
   "item.qwsaddmod.pee_bucket": "Bucket of Pee",
   "item.qwsaddmod.bottle_of_pee": "Bottle of Pee",
+  "block.qwsaddmod.poop_block": "Poop Block",
+  "item.qwsaddmod.poop_axe": "Poop Axe",
+  "item.qwsaddmod.poop_pickaxe": "Poop Pickaxe",
+  "item.qwsaddmod.poop_sword": "Poop Sword",
+  "item.qwsaddmod.poop_hoe": "Poop Hoe",
+  "item.qwsaddmod.poop_jetpack": "Poop Jetpack",
 
   "tooltip.qwsaddmod.poop.owner": "This is %s's poop",
 
-  "message.qwsaddmod.cannot_poop": "Not enough poop level to excrete!",
-  "message.qwsaddmod.cannot_pee": "Not enough pee level to urinate!",
-  "message.qwsaddmod.pee_incontinence_broadcast": "%1$s wet their pants due to incontinence!",
-  "message.qwsaddmod.poop_incontinence_broadcast": "%1$s pooped in public!!",
+  "message.qwsaddmod.cannot_poop": "Not enough... pressure to excrete!",
+  "message.qwsaddmod.cannot_pee": "Not enough... pressure to urinate!",
+  "message.qwsaddmod.pee_incontinence_broadcast": "%1$s wet their pants!",
+  "message.qwsaddmod.poop_incontinence_broadcast": "%1$s couldn't hold it anymore and pooped in public!!",
 
-  "death.attack.qwsaddmod.incontinence": "%1$s was held to death",
+  "death.attack.qwsaddmod.incontinence": "%1$s burst from holding it in",
 
-  "advancement.qwsaddmod.root.title": "QQQWWadd:英语的语言文件是ai写的   this en_us.json made by ai",
-  "advancement.qwsaddmod.root.description": "Welcome to a more realistic world",
-  "advancement.qwsaddmod.pee_incontinence.title": "The First Time is Always an Accident",
+  "advancement.qwsaddmod.root.title": "QQQWW's Poop mod",
+  "advancement.qwsaddmod.root.description": "Pee, Poop and Farts are the best!",
+  "advancement.qwsaddmod.pee_incontinence.title": "Is it raining?",
   "advancement.qwsaddmod.pee_incontinence.description": "Experience incontinence for the first time from a full bladder",
   "advancement.qwsaddmod.poop_incontinence.title": "Social Suicide",
   "advancement.qwsaddmod.poop_incontinence.description": "Experience incontinence for the first time from full bowels",
-  "advancement.qwsaddmod.eat_poop.title": "An Acquired Taste",
+  "advancement.qwsaddmod.eat_poop.title": "Gourmet",
   "advancement.qwsaddmod.eat_poop.description": "You're always brave enough to try new things, right?",
   "advancement.qwsaddmod.drink_pee.title": "Nectar of the Gods",
-  "advancement.qwsaddmod.drink_pee.description": "Care to try your own... brew?"
+  "advancement.qwsaddmod.drink_pee.description": "Care to try your own... brew?",
+  "advancement.qwsaddmod.craft_poop_jetpack.title": "Eco-Friendly Energy",
+  "advancement.qwsaddmod.craft_poop_jetpack.description": "Craft your own Poop Jetpack!"
 }

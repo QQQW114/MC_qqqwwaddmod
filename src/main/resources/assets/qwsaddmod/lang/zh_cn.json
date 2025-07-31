@@ -7,6 +7,12 @@
   "item.qwsaddmod.poop": "大便",
   "item.qwsaddmod.pee_bucket": "一桶尿",
   "item.qwsaddmod.bottle_of_pee": "一瓶尿",
+  "block.qwsaddmod.poop_block": "大便块",
+  "item.qwsaddmod.poop_axe": "大便斧",
+  "item.qwsaddmod.poop_pickaxe": "大便镐",
+  "item.qwsaddmod.poop_sword": "大便剑",
+  "item.qwsaddmod.poop_hoe": "大便锄",
+  "item.qwsaddmod.poop_jetpack": "大便喷气背包",
 
   "tooltip.qwsaddmod.poop.owner": "这是%s拉的大便",
 
@@ -17,14 +23,16 @@
 
   "death.attack.qwsaddmod.incontinence": "%1$s 憋死了",
 
-  "advancement.qwsaddmod.root.title": "QQQWW附加包",
+  "advancement.qwsaddmod.root.title": "QQQWW的大便mod",
   "advancement.qwsaddmod.root.description": "屎尿屁赛高！",
   "advancement.qwsaddmod.pee_incontinence.title": "下雨了？",
   "advancement.qwsaddmod.pee_incontinence.description": "第一次因尿意已满而失禁",
-  "advancement.qwsaddmod.poop_incontinence.title": "社会性死亡",
+  "advancement.qwsaddmod.poop_incontinence.title": "社会性屎亡",
   "advancement.qwsaddmod.poop_incontinence.description": "第一次因便意已满而失禁",
-  "advancement.qwsaddmod.eat_poop.title": "老八",
-  "advancement.qwsaddmod.eat_poop.description": "你总是敢于尝试新事物，对吧？",
+  "advancement.qwsaddmod.eat_poop.title": "独吃自疴",
+  "advancement.qwsaddmod.eat_poop.description": "自 食 其 果",
   "advancement.qwsaddmod.drink_pee.title": "琼浆玉露",
-  "advancement.qwsaddmod.drink_pee.description": "尝试下你自己的尿？"
+  "advancement.qwsaddmod.drink_pee.description": "尝试下你自己的尿？",
+  "advancement.qwsaddmod.craft_poop_jetpack.title": "【环保能源】",
+  "advancement.qwsaddmod.craft_poop_jetpack.description": "制作出你的大便喷气背包！"
 }

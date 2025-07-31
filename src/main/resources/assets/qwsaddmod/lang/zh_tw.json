@@ -1,0 +1,38 @@
+{
+  "creativetab.qwsaddmod": "QWSAdd模組",
+  "key.categories.qwsaddmod": "QWSAdd模組",
+  "key.qwsaddmod.poop": "排泄",
+  "key.qwsaddmod.pee": "排尿",
+
+  "item.qwsaddmod.poop": "大便",
+  "item.qwsaddmod.pee_bucket": "一桶尿",
+  "item.qwsaddmod.bottle_of_pee": "一瓶尿",
+  "block.qwsaddmod.poop_block": "大便塊",
+  "item.qwsaddmod.poop_axe": "大便斧",
+  "item.qwsaddmod.poop_pickaxe": "大便鎬",
+  "item.qwsaddmod.poop_sword": "大便劍",
+  "item.qwsaddmod.poop_hoe": "大便鋤",
+  "item.qwsaddmod.poop_jetpack": "大便噴射背包",
+
+  "tooltip.qwsaddmod.poop.owner": "這是%s拉的大便",
+
+  "message.qwsaddmod.cannot_poop": "便意值不足，無法排泄！",
+  "message.qwsaddmod.cannot_pee": "尿意值不足，無法排尿！",
+  "message.qwsaddmod.pee_incontinence_broadcast": "%1$s 因為失禁尿了一褲子！",
+  "message.qwsaddmod.poop_incontinence_broadcast": "%1$s 忍不住了！在公眾場合脫出大便！！",
+
+  "death.attack.qwsaddmod.incontinence": "%1$s 憋死了",
+
+  "advancement.qwsaddmod.root.title": "QQQWW的大便mod",
+  "advancement.qwsaddmod.root.description": "屎尿屁賽高！",
+  "advancement.qwsaddmod.pee_incontinence.title": "下雨了？",
+  "advancement.qwsaddmod.pee_incontinence.description": "第一次因尿意已滿而失禁",
+  "advancement.qwsaddmod.poop_incontinence.title": "社會性屎亡",
+  "advancement.qwsaddmod.poop_incontinence.description": "第一次因便意已滿而失禁",
+  "advancement.qwsaddmod.eat_poop.title": "独吃自疴",
+  "advancement.qwsaddmod.eat_poop.description": "自 食 其 果",
+  "advancement.qwsaddmod.drink_pee.title": "瓊漿玉露",
+  "advancement.qwsaddmod.drink_pee.description": "嘗試下你自己的尿？",
+  "advancement.qwsaddmod.craft_poop_jetpack.title": "【環保能源】",
+  "advancement.qwsaddmod.craft_poop_jetpack.description": "製作出你的大便噴射背包！"
+}

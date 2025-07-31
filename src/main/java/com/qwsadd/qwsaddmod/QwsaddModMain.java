@@ -32,6 +32,9 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import com.qwsadd.qwsaddmod.init.BlockInit; // 新增 import
+import com.qwsadd.qwsaddmod.init.EntityInit;
+import com.qwsadd.qwsaddmod.init.ItemInit;
 
 @Mod(QwsaddModMain.MODID)
 public class QwsaddModMain {
@@ -55,6 +58,12 @@ public class QwsaddModMain {
                     .icon(() -> new ItemStack(ItemInit.POOP_ITEM.get()))
                     .displayItems((params, output) -> {
                         output.accept(ItemInit.POOP_ITEM.get());
+                        output.accept(BlockInit.POOP_BLOCK.get());
+                        output.accept(ItemInit.POOP_AXE.get());
+                        output.accept(ItemInit.POOP_PICKAXE.get());
+                        output.accept(ItemInit.POOP_SWORD.get());
+                        output.accept(ItemInit.POOP_HOE.get());
+                        output.accept(ItemInit.POOP_JETPACK.get());
                         output.accept(ItemInit.PEE_BUCKET.get());
                         output.accept(ItemInit.BOTTLE_OF_PEE.get());
                     }).build());
@@ -62,12 +71,12 @@ public class QwsaddModMain {
     public QwsaddModMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // 【已修正】只注册我们需要的 DeferredRegister
+        // 注册我们所有的 DeferredRegister
         ItemInit.ITEMS.register(modEventBus);
         EntityInit.ENTITIES.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
-        // 【已删除】不再需要注册 DAMAGE_TYPES
-        // 【已删除】不再需要实例化 ModDamageTypes
+        BlockInit.BLOCKS.register(modEventBus);
+
 
         modEventBus.addListener(this::onCommonSetup);
         modEventBus.addListener(ClientSetup::init);
