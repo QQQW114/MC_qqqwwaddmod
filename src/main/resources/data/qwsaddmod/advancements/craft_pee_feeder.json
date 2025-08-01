@@ -1,0 +1,37 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:pee_feeder"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.craft_pee_feeder.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.craft_pee_feeder.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_pee_feeder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "qwsaddmod:pee_feeder"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pee_feeder"
+    ]
+  ]
+}

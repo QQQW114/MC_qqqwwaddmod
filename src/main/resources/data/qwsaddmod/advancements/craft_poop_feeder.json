@@ -1,0 +1,37 @@
+{
+  "parent": "qwsaddmod:root",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:poop_feeder"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.craft_poop_feeder.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.craft_poop_feeder.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_poop_feeder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "qwsaddmod:poop_feeder"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_poop_feeder"
+    ]
+  ]
+}

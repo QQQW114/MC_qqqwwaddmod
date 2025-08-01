@@ -1,6 +1,7 @@
 package com.qwsadd.qwsaddmod.init;
 
 import com.qwsadd.qwsaddmod.QwsaddModMain;
+import com.qwsadd.qwsaddmod.blocks.PoopFermenterBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -47,4 +48,6 @@ public class BlockInit {
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ItemInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
+    public static final RegistryObject<Block> POOP_FERMENTER = registerBlock("poop_fermenter",
+            () -> new PoopFermenterBlock(BlockBehaviour.Properties.of().strength(3.5f).requiresCorrectToolForDrops()));
 }

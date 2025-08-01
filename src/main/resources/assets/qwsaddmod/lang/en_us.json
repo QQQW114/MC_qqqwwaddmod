@@ -5,14 +5,28 @@
   "key.qwsaddmod.pee": "Urinate",
 
   "item.qwsaddmod.poop": "Poop",
+  "item.qwsaddmod.fermented_poop": "Fermented Poop",
+  "item.qwsaddmod.poop_core": "Poop Core",
+  "item.qwsaddmod.hardened_poop": "Hardened Poop",
   "item.qwsaddmod.pee_bucket": "Bucket of Pee",
   "item.qwsaddmod.bottle_of_pee": "Bottle of Pee",
-  "block.qwsaddmod.poop_block": "Poop Block",
+  "block.qwsaddmod.poop_block": "Hardened Poop Block",
   "item.qwsaddmod.poop_axe": "Poop Axe",
   "item.qwsaddmod.poop_pickaxe": "Poop Pickaxe",
   "item.qwsaddmod.poop_sword": "Poop Sword",
   "item.qwsaddmod.poop_hoe": "Poop Hoe",
+  "item.qwsaddmod.poop_feeder": "Poop Feeder",
+  "tooltip.qwsaddmod.poop_feeder.description": "§7When carried, automatically consumes Poop to replenish Poop Level when it's low.§r",
+  "item.qwsaddmod.pee_feeder": "Pee Feeder",
+  "tooltip.qwsaddmod.pee_feeder.description": "§7When carried, automatically consumes Bottles of Pee to replenish Pee Level when it's low.§r",
+  "item.qwsaddmod.poop_staff": "Staff of Poop",
   "item.qwsaddmod.poop_jetpack": "Poop Jetpack",
+  "tooltip.qwsaddmod.poop_jetpack.description": "§7Consumes Poop Level to grant the ability to fly.§r",
+  "item.qwsaddmod.pee_exoskeleton": "Pee-Powered Exoskeleton",
+  "tooltip.qwsaddmod.pee_exoskeleton.passive_effects": "§7Consumes Pee Level to grant Regeneration, Resistance, and Speed.§r",
+  "tooltip.qwsaddmod.pee_exoskeleton.emergency_save": "§6Negates fatal damage and restores health when taking a lethal hit.§r",
+  "item.qwsaddmod.poop_cake": "Poop Cake",
+  "effect.qwsaddmod.diarrhea": "Diarrhea",
 
   "tooltip.qwsaddmod.poop.owner": "This is %s's poop",
 
@@ -34,5 +48,11 @@
   "advancement.qwsaddmod.drink_pee.title": "Nectar of the Gods",
   "advancement.qwsaddmod.drink_pee.description": "Care to try your own... brew?",
   "advancement.qwsaddmod.craft_poop_jetpack.title": "Eco-Friendly Energy",
-  "advancement.qwsaddmod.craft_poop_jetpack.description": "Craft your own Poop Jetpack!"
+  "advancement.qwsaddmod.craft_poop_jetpack.description": "Craft your own Poop Jetpack!",
+  "advancement.qwsaddmod.craft_pee_exoskeleton.title": "Pee-Powered",
+  "advancement.qwsaddmod.craft_pee_exoskeleton.description": "An exoskeleton made of... questionable materials",
+  "advancement.qwsaddmod.craft_poop_feeder.title": "Automated... Logistics",
+  "advancement.qwsaddmod.craft_poop_feeder.description": "Craft a Poop Feeder",
+  "advancement.qwsaddmod.craft_pee_feeder.title": "External Bladder",
+  "advancement.qwsaddmod.craft_pee_feeder.description": "Craft a Pee Feeder"
 }

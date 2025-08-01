@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PPP",
+    "PCP",
+    "PBP"
+  ],
+  "key": {
+    "P": {
+      "item": "qwsaddmod:poop"
+    },
+    "C": {
+      "item": "qwsaddmod:poop_core"
+    },
+    "B": {
+      "item": "qwsaddmod:poop_block"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:poop_feeder"
+  }
+}

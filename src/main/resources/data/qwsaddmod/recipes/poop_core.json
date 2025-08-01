@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FIF",
+    "GDG",
+    "FIF"
+  ],
+  "key": {
+    "F": {
+      "item": "qwsaddmod:fermented_poop"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:poop_core"
+  }
+}

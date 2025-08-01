@@ -19,6 +19,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import com.qwsadd.qwsaddmod.menu.ModMenuTypes;
+import com.qwsadd.qwsaddmod.screen.PoopFermenterScreen; // 新增 import
+import net.minecraft.client.gui.screens.MenuScreens; // 新增 import
 
 @Mod.EventBusSubscriber(modid = QwsaddModMain.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientSetup {
@@ -27,7 +30,11 @@ public class ClientSetup {
     // 但更好的做法是直接在 FMLClientSetupEvent 中注册到 FORGE 总线
     public static void init(final FMLClientSetupEvent event) {
         // 【修复】将按键监听器注册到 FORGE 事件总线，而不是 MOD 事件总线
+
         MinecraftForge.EVENT_BUS.register(ClientSetup.class);
+        event.enqueueWork(() -> {
+            MenuScreens.register(ModMenuTypes.POOP_FERMENTER_MENU.get(), PoopFermenterScreen::new);
+        });
     }
 
     @SubscribeEvent

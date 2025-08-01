@@ -1,0 +1,37 @@
+{
+  "parent": "qwsaddmod:craft_poop_jetpack",
+  "display": {
+    "icon": {
+      "item": "qwsaddmod:pee_exoskeleton"
+    },
+    "title": {
+      "translate": "advancement.qwsaddmod.craft_pee_exoskeleton.title"
+    },
+    "description": {
+      "translate": "advancement.qwsaddmod.craft_pee_exoskeleton.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_pee_exoskeleton": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "qwsaddmod:pee_exoskeleton"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_pee_exoskeleton"
+    ]
+  ]
+}

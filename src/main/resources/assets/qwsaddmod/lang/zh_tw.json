@@ -5,14 +5,28 @@
   "key.qwsaddmod.pee": "排尿",
 
   "item.qwsaddmod.poop": "大便",
+  "item.qwsaddmod.fermented_poop": "發酵大便",
+  "item.qwsaddmod.poop_core": "大便核心",
+  "item.qwsaddmod.hardened_poop": "硬化大便",
   "item.qwsaddmod.pee_bucket": "一桶尿",
   "item.qwsaddmod.bottle_of_pee": "一瓶尿",
-  "block.qwsaddmod.poop_block": "大便塊",
+  "block.qwsaddmod.poop_block": "硬化大便塊",
   "item.qwsaddmod.poop_axe": "大便斧",
   "item.qwsaddmod.poop_pickaxe": "大便鎬",
   "item.qwsaddmod.poop_sword": "大便劍",
   "item.qwsaddmod.poop_hoe": "大便鋤",
+  "item.qwsaddmod.poop_feeder": "大便補充器",
+  "tooltip.qwsaddmod.poop_feeder.description": "§7攜帶在身上時，會在便意值過低時自動消耗大便進行補充。§r",
+  "item.qwsaddmod.pee_feeder": "尿液補充器",
+  "tooltip.qwsaddmod.pee_feeder.description": "§7攜帶在身上時，會在尿意值過低時自動消耗尿瓶進行補充。§r",
+  "item.qwsaddmod.poop_staff": "大便之杖",
   "item.qwsaddmod.poop_jetpack": "大便噴射背包",
+  "tooltip.qwsaddmod.poop_jetpack.description": "§7持續消耗便意值來提供飛行能力。§r",
+  "item.qwsaddmod.pee_exoskeleton": "尿動力外骨骼",
+  "tooltip.qwsaddmod.pee_exoskeleton.passive_effects": "§7持續消耗尿意值提供生命恢復、抗性和速度。§r",
+  "tooltip.qwsaddmod.pee_exoskeleton.emergency_save": "§6受到致命傷害時將消耗尿意值抵消傷害並恢復生命值。§r",
+  "item.qwsaddmod.poop_cake": "大便蛋糕",
+  "effect.qwsaddmod.diarrhea": "腹瀉",
 
   "tooltip.qwsaddmod.poop.owner": "這是%s拉的大便",
 
@@ -34,5 +48,11 @@
   "advancement.qwsaddmod.drink_pee.title": "瓊漿玉露",
   "advancement.qwsaddmod.drink_pee.description": "嘗試下你自己的尿？",
   "advancement.qwsaddmod.craft_poop_jetpack.title": "【環保能源】",
-  "advancement.qwsaddmod.craft_poop_jetpack.description": "製作出你的大便噴射背包！"
+  "advancement.qwsaddmod.craft_poop_jetpack.description": "製作出你的大便噴射背包！",
+  "advancement.qwsaddmod.craft_pee_exoskeleton.title": "尿動力",
+  "advancement.qwsaddmod.craft_pee_exoskeleton.description": "由狠活製成的外骨骼",
+  "advancement.qwsaddmod.craft_poop_feeder.title": "自動化赤石",
+  "advancement.qwsaddmod.craft_poop_feeder.description": "製作一個大便補充器",
+  "advancement.qwsaddmod.craft_pee_feeder.title": "外置膀胱",
+  "advancement.qwsaddmod.craft_pee_feeder.description": "製作一個尿液補充器"
 }

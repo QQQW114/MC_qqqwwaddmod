@@ -3,7 +3,9 @@ package com.qwsadd.qwsaddmod.items;
 import com.qwsadd.qwsaddmod.QwsaddModMain;
 import com.qwsadd.qwsaddmod.core.ModArmorMaterials;
 import com.qwsadd.qwsaddmod.network.PoopLevelPacket;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes; // 新增 import
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -11,10 +13,13 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3; // 新增 import
 import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class PoopJetpackItem extends ArmorItem {
 
@@ -84,5 +89,13 @@ public class PoopJetpackItem extends ArmorItem {
                 // ==================== ↑↑↑ 新增代码结束 ↑↑↑ ====================
             }
         }
+    }
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        // 添加描述文本
+        pTooltipComponents.add(Component.translatable("tooltip.qwsaddmod.poop_jetpack.description")
+                .withStyle(ChatFormatting.GRAY));
+
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 }

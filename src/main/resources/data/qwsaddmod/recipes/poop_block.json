@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "PP",
-    "PP"
+    "PPP",
+    "PPP",
+    "PPP"
   ],
   "key": {
     "P": {
-      "item": "qwsaddmod:poop"
+      "item": "qwsaddmod:hardened_poop"
     }
   },
   "result": {

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "UCU",
+    "PPP"
+  ],
+  "key": {
+    "U": {
+      "item": "qwsaddmod:bottle_of_pee"
+    },
+    "C": {
+      "item": "minecraft:cake"
+    },
+    "P": {
+      "item": "qwsaddmod:poop"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:poop_cake"
+  }
+}

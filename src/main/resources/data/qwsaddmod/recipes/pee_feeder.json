@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UUU",
+    "UCU",
+    "UBU"
+  ],
+  "key": {
+    "U": {
+      "item": "qwsaddmod:bottle_of_pee"
+    },
+    "C": {
+      "item": "qwsaddmod:poop_core"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:pee_feeder"
+  }
+}

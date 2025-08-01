@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "qwsaddmod:block/poop_fermenter_side",
+    "up": "qwsaddmod:block/poop_fermenter_top",
+    "north": "qwsaddmod:block/poop_fermenter_front",
+    "south": "qwsaddmod:block/poop_fermenter_side",
+    "east": "qwsaddmod:block/poop_fermenter_side",
+    "west": "qwsaddmod:block/poop_fermenter_side",
+    "particle": "qwsaddmod:block/poop_fermenter_side"
+  }
+}

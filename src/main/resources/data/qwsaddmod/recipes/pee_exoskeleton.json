@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DTD",
+    "UCU",
+    "LBL"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "U": {
+      "item": "qwsaddmod:bottle_of_pee"
+    },
+    "C": {
+      "item": "minecraft:iron_leggings"
+    },
+    "L": {
+      "item": "qwsaddmod:pee_bucket"
+    },
+    "B": {
+      "item": "qwsaddmod:poop_block"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:pee_exoskeleton"
+  }
+}

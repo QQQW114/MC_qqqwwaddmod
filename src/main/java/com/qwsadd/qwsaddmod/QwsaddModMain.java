@@ -1,6 +1,7 @@
 // 文件路径: com/qwsadd/qwsaddmod/QwsaddModMain.java
 package com.qwsadd.qwsaddmod;
 
+import com.qwsadd.qwsaddmod.blockentity.ModBlockEntities;
 import com.qwsadd.qwsaddmod.capability.IPeeCapability;
 import com.qwsadd.qwsaddmod.capability.IPoopCapability;
 import com.qwsadd.qwsaddmod.capability.PeeCapabilityProvider;
@@ -10,6 +11,7 @@ import com.qwsadd.qwsaddmod.client.ClientSetup;
 import com.qwsadd.qwsaddmod.events.PlayerEvents;
 import com.qwsadd.qwsaddmod.init.EntityInit;
 import com.qwsadd.qwsaddmod.init.ItemInit;
+import com.qwsadd.qwsaddmod.menu.ModMenuTypes;
 import com.qwsadd.qwsaddmod.network.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -35,6 +37,8 @@ import net.minecraftforge.registries.RegistryObject;
 import com.qwsadd.qwsaddmod.init.BlockInit; // 新增 import
 import com.qwsadd.qwsaddmod.init.EntityInit;
 import com.qwsadd.qwsaddmod.init.ItemInit;
+import com.qwsadd.qwsaddmod.network.PlayTotemEffectPacket;
+import com.qwsadd.qwsaddmod.effects.ModEffects;
 
 @Mod(QwsaddModMain.MODID)
 public class QwsaddModMain {
@@ -58,14 +62,23 @@ public class QwsaddModMain {
                     .icon(() -> new ItemStack(ItemInit.POOP_ITEM.get()))
                     .displayItems((params, output) -> {
                         output.accept(ItemInit.POOP_ITEM.get());
+                        output.accept(ItemInit.FERMENTED_POOP.get()); // <-- 新增
+                        output.accept(ItemInit.POOP_CORE.get());// <-- 新增
+                        output.accept(ItemInit.HARDENED_POOP.get());
                         output.accept(BlockInit.POOP_BLOCK.get());
+                        output.accept(BlockInit.POOP_FERMENTER.get());
                         output.accept(ItemInit.POOP_AXE.get());
                         output.accept(ItemInit.POOP_PICKAXE.get());
                         output.accept(ItemInit.POOP_SWORD.get());
                         output.accept(ItemInit.POOP_HOE.get());
+                        output.accept(ItemInit.POOP_FEEDER.get());
+                        output.accept(ItemInit.PEE_FEEDER.get());
                         output.accept(ItemInit.POOP_JETPACK.get());
+                        output.accept(ItemInit.PEE_EXOSKELETON.get());
                         output.accept(ItemInit.PEE_BUCKET.get());
                         output.accept(ItemInit.BOTTLE_OF_PEE.get());
+                        output.accept(ItemInit.POOP_STAFF.get());
+                        output.accept(ItemInit.POOP_CAKE.get());
                     }).build());
 
     public QwsaddModMain() {
@@ -76,6 +89,9 @@ public class QwsaddModMain {
         EntityInit.ENTITIES.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
+        ModBlockEntities.register(modEventBus); // <-- 新增
+        ModMenuTypes.register(modEventBus);     // <-- 新增
+        ModEffects.register(modEventBus);
 
 
         modEventBus.addListener(this::onCommonSetup);
@@ -93,6 +109,7 @@ public class QwsaddModMain {
             NETWORK_CHANNEL.registerMessage(id++, PeeActionPacket.class, PeeActionPacket::encode, PeeActionPacket::decode, PeeActionPacket::handle);
             NETWORK_CHANNEL.registerMessage(id++, PeeLevelPacket.class, PeeLevelPacket::encode, PeeLevelPacket::decode, PeeLevelPacket::handle);
             NETWORK_CHANNEL.registerMessage(id++, PlayPeeAnimationPacket.class, PlayPeeAnimationPacket::encode, PlayPeeAnimationPacket::decode, PlayPeeAnimationPacket::handle);
+            NETWORK_CHANNEL.registerMessage(id++, PlayTotemEffectPacket.class, PlayTotemEffectPacket::encode, PlayTotemEffectPacket::decode, PlayTotemEffectPacket::handle);
         });
     }
 
