@@ -65,6 +65,7 @@ public class QwsaddModMain {
                         output.accept(ItemInit.FERMENTED_POOP.get()); // <-- 新增
                         output.accept(ItemInit.POOP_CORE.get());// <-- 新增
                         output.accept(ItemInit.HARDENED_POOP.get());
+                        output.accept(BlockInit.SQUAT_TOILET.get());
                         output.accept(BlockInit.POOP_BLOCK.get());
                         output.accept(BlockInit.POOP_FERMENTER.get());
                         output.accept(ItemInit.POOP_AXE.get());

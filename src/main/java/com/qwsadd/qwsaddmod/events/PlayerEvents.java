@@ -1,7 +1,9 @@
 package com.qwsadd.qwsaddmod.events;
 
 import com.qwsadd.qwsaddmod.QwsaddModMain;
+import com.qwsadd.qwsaddmod.blocks.SquatToiletBlock;
 import com.qwsadd.qwsaddmod.core.ModDamageTypes;
+import com.qwsadd.qwsaddmod.init.BlockInit;
 import com.qwsadd.qwsaddmod.init.ItemInit;
 import com.qwsadd.qwsaddmod.entity.PoopEntity;
 import com.qwsadd.qwsaddmod.network.PeeLevelPacket;
@@ -9,12 +11,14 @@ import com.qwsadd.qwsaddmod.network.PlayTotemEffectPacket; // 新增 import
 import com.qwsadd.qwsaddmod.network.PoopLevelPacket;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes; // 新增 import
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel; // 新增 import
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance; // 新增 import
 import net.minecraft.world.effect.MobEffects; // 新增 import
@@ -23,6 +27,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent; // 新增 import
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
@@ -30,6 +35,8 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import com.qwsadd.qwsaddmod.entity.SeatEntity; // 新增 import
 
 public class PlayerEvents {
 
@@ -86,7 +93,16 @@ public class PlayerEvents {
             // 同步能力到客户端
             player.onUpdateAbilities();
         }
-        // ==================== ↑↑↑ 新增代码结束 ↑↑↑ ====================
+        // 【核心修正】修改蹲坑检测逻辑
+        // 【核心修正】修改蹲坑检测逻辑
+        if (player.getVehicle() instanceof SeatEntity) {
+            BlockPos pos = player.getVehicle().blockPosition();
+            handleSquatting(player, pos);
+        }
+
+        if (player.isCreative() || player.isSpectator()) {
+            return;
+        }
     }
 
     @SubscribeEvent
@@ -265,4 +281,46 @@ public class PlayerEvents {
         });
     }
     // ==================== ↑↑↑ 新增代码结束 ↑↑↑ ====================
+    // ... (在 syncPlayerCapabilities 方法之后)
+
+    // ==================== ↓↓↓ 新增：蹲坑处理方法 ↓↓↓ ====================
+    private static void handleSquatting(ServerPlayer player, BlockPos pos) {
+        // 每秒检查一次
+        if (player.tickCount % 20 != 0) {
+            return;
+        }
+
+        BlockState blockState = player.level().getBlockState(pos);
+        int currentLevel = blockState.getValue(SquatToiletBlock.LEVEL);
+
+        // 如果蹲坑满了，就停止
+        if (currentLevel >= SquatToiletBlock.MAX_LEVEL) {
+            return;
+        }
+
+        final boolean[] poopReduced = {false};
+        player.getCapability(QwsaddModMain.POOP_CAPABILITY).ifPresent(poopCap -> {
+            if (poopCap.getPoopLevel() > 0) {
+                poopCap.setPoopLevel(poopCap.getPoopLevel() - 1);
+                poopReduced[0] = true;
+                // 每消耗10点便意，增加一级堆肥
+                if (poopCap.getPoopLevel() % 10 == 0) {
+                    player.level().setBlock(pos, blockState.setValue(SquatToiletBlock.LEVEL, currentLevel + 1), 3);
+                    player.level().playSound(null, pos, SoundEvents.COMPOSTER_FILL_SUCCESS, SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+            }
+        });
+
+        player.getCapability(QwsaddModMain.PEE_CAPABILITY).ifPresent(peeCap -> {
+            if (peeCap.getPeeLevel() > 0) {
+                peeCap.setPeeLevel(peeCap.getPeeLevel() - 1);
+            }
+        });
+
+        // 如果消耗了任何东西，就同步
+        if (poopReduced[0]) {
+            syncPlayerCapabilities(player);
+        }
+    }
+// ==================== ↑↑↑ 新增代码结束 ↑↑↑ ====================
 }

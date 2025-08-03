@@ -8,6 +8,8 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.qwsadd.qwsaddmod.entity.SeatEntity;
+import net.minecraft.world.entity.MobCategory;
 
 public class EntityInit {
     public static final DeferredRegister<EntityType<?>> ENTITIES =
@@ -30,4 +32,10 @@ public class EntityInit {
                             .clientTrackingRange(4)
                             .build("pee")
             );
+    public static final RegistryObject<EntityType<SeatEntity>> SEAT_ENTITY = ENTITIES.register("seat_entity",
+            () -> EntityType.Builder.<SeatEntity>of(SeatEntity::new, MobCategory.MISC)
+                    .sized(0.001F, 0.001F) // 尺寸极小，几乎无碰撞
+                    .clientTrackingRange(8)
+                    .build("seat_entity"));
+
 }

@@ -11,6 +11,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.qwsadd.qwsaddmod.blocks.SquatToiletBlock;
 
 import java.util.function.Supplier;
 
@@ -50,4 +51,6 @@ public class BlockInit {
     }
     public static final RegistryObject<Block> POOP_FERMENTER = registerBlock("poop_fermenter",
             () -> new PoopFermenterBlock(BlockBehaviour.Properties.of().strength(3.5f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SQUAT_TOILET = registerBlock("squat_toilet",
+            () -> new SquatToiletBlock(BlockBehaviour.Properties.copy(net.minecraft.world.level.block.Blocks.COMPOSTER)));
 }

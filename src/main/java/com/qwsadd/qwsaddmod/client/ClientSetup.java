@@ -47,6 +47,7 @@ public class ClientSetup {
     public static void onRegisterRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityInit.POOP_ENTITY.get(), PoopRenderer::new);
         event.registerEntityRenderer(EntityInit.PEE_ENTITY.get(), PeeRenderer::new);
+        event.registerEntityRenderer(EntityInit.SEAT_ENTITY.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
     }
 
     @SubscribeEvent

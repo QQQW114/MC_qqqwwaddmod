@@ -7,6 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import com.qwsadd.qwsaddmod.blockentity.SquatToiletBlockEntity;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -20,4 +21,8 @@ public class ModBlockEntities {
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }
+    public static final RegistryObject<BlockEntityType<SquatToiletBlockEntity>> SQUAT_TOILET_BE =
+            BLOCK_ENTITIES.register("squat_toilet_be", () ->
+                    BlockEntityType.Builder.of(SquatToiletBlockEntity::new,
+                            BlockInit.SQUAT_TOILET.get()).build(null));
 }

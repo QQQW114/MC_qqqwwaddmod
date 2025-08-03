@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "LCL",
+    "LLL"
+  ],
+  "key": {
+    "B": {
+      "item": "qwsaddmod:poop_block"
+    },
+    "C": {
+      "item": "minecraft:composter"
+    },
+    "L": {
+      "tag": "minecraft:logs"
+    }
+  },
+  "result": {
+    "item": "qwsaddmod:squat_toilet"
+  }
+}
