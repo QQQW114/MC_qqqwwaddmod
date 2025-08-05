@@ -6,8 +6,7 @@ import com.qwsadd.qwsaddmod.capability.IPeeCapability;
 import com.qwsadd.qwsaddmod.capability.IPoopCapability;
 import com.qwsadd.qwsaddmod.capability.PeeCapabilityProvider;
 import com.qwsadd.qwsaddmod.capability.PoopCapabilityProvider;
-import com.qwsadd.qwsaddmod.client.ClientSetup;
-// import com.qwsadd.qwsaddmod.core.ModDamageTypes; // 这个导入不再需要，因为主类不直接引用它
+import net.minecraftforge.fml.DistExecutor;
 import com.qwsadd.qwsaddmod.events.PlayerEvents;
 import com.qwsadd.qwsaddmod.init.EntityInit;
 import com.qwsadd.qwsaddmod.init.ItemInit;
@@ -39,6 +38,12 @@ import com.qwsadd.qwsaddmod.init.EntityInit;
 import com.qwsadd.qwsaddmod.init.ItemInit;
 import com.qwsadd.qwsaddmod.network.PlayTotemEffectPacket;
 import com.qwsadd.qwsaddmod.effects.ModEffects;
+import com.qwsadd.qwsaddmod.client.ClientPacketHandler;
+import net.minecraftforge.api.distmarker.Dist;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
+import net.minecraftforge.network.NetworkEvent;
+
 
 @Mod(QwsaddModMain.MODID)
 public class QwsaddModMain {
@@ -85,19 +90,25 @@ public class QwsaddModMain {
     public QwsaddModMain() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // 注册我们所有的 DeferredRegister
+        // 注册我们所有的 DeferredRegister (通用代码)
         ItemInit.ITEMS.register(modEventBus);
         EntityInit.ENTITIES.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         BlockInit.BLOCKS.register(modEventBus);
-        ModBlockEntities.register(modEventBus); // <-- 新增
-        ModMenuTypes.register(modEventBus);     // <-- 新增
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
         ModEffects.register(modEventBus);
-
-
+        // 通用设置事件监听
         modEventBus.addListener(this::onCommonSetup);
-        modEventBus.addListener(ClientSetup::init);
 
+
+// 【核心修正】使用 DistExecutor 来分离客户端和服务端逻辑
+        DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT, () -> () -> {
+            // 这里的代码只会在客户端运行
+            modEventBus.addListener(com.qwsadd.qwsaddmod.client.ClientSetup::init);
+        });
+
+        // 通用事件总线注册
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(PlayerEvents.class);
     }
@@ -105,12 +116,23 @@ public class QwsaddModMain {
     private void onCommonSetup(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             int id = 0;
+
+            // 客户端 -> 服务端 的数据包 (这些是安全的，保持不变)
             NETWORK_CHANNEL.registerMessage(id++, PoopActionPacket.class, PoopActionPacket::encode, PoopActionPacket::decode, PoopActionPacket::handle);
-            NETWORK_CHANNEL.registerMessage(id++, PoopLevelPacket.class, PoopLevelPacket::encode, PoopLevelPacket::decode, PoopLevelPacket::handle);
             NETWORK_CHANNEL.registerMessage(id++, PeeActionPacket.class, PeeActionPacket::encode, PeeActionPacket::decode, PeeActionPacket::handle);
-            NETWORK_CHANNEL.registerMessage(id++, PeeLevelPacket.class, PeeLevelPacket::encode, PeeLevelPacket::decode, PeeLevelPacket::handle);
-            NETWORK_CHANNEL.registerMessage(id++, PlayPeeAnimationPacket.class, PlayPeeAnimationPacket::encode, PlayPeeAnimationPacket::decode, PlayPeeAnimationPacket::handle);
-            NETWORK_CHANNEL.registerMessage(id++, PlayTotemEffectPacket.class, PlayTotemEffectPacket::encode, PlayTotemEffectPacket::decode, PlayTotemEffectPacket::handle);
+
+            // 服务端 -> 客户端 的数据包 (使用新的注册方式)
+            NETWORK_CHANNEL.registerMessage(id++, PoopLevelPacket.class, PoopLevelPacket::toBytes, PoopLevelPacket::new,
+                    (BiConsumer<PoopLevelPacket, Supplier<NetworkEvent.Context>>) DistExecutor.safeRunForDist(() -> ClientPacketHandler::getPoopLevelConsumer, () -> null));
+
+            NETWORK_CHANNEL.registerMessage(id++, PeeLevelPacket.class, PeeLevelPacket::toBytes, PeeLevelPacket::new,
+                    (BiConsumer<PeeLevelPacket, Supplier<NetworkEvent.Context>>) DistExecutor.safeRunForDist(() -> ClientPacketHandler::getPeeLevelConsumer, () -> null));
+
+            NETWORK_CHANNEL.registerMessage(id++, PlayPeeAnimationPacket.class, PlayPeeAnimationPacket::toBytes, PlayPeeAnimationPacket::new,
+                    (BiConsumer<PlayPeeAnimationPacket, Supplier<NetworkEvent.Context>>) DistExecutor.safeRunForDist(() -> ClientPacketHandler::getPlayPeeAnimationConsumer, () -> null));
+
+            NETWORK_CHANNEL.registerMessage(id++, PlayTotemEffectPacket.class, PlayTotemEffectPacket::toBytes, PlayTotemEffectPacket::new,
+                    (BiConsumer<PlayTotemEffectPacket, Supplier<NetworkEvent.Context>>) DistExecutor.safeRunForDist(() -> ClientPacketHandler::getPlayTotemEffectConsumer, () -> null));
         });
     }
 

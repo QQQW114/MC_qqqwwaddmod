@@ -12,7 +12,7 @@ ext {
     mod_id = 'qwsaddmod'
     mod_name = 'QWSAdd Mod'
     mod_license = 'All rights reserved'
-    mod_version = '1.0.0'
+    mod_version = '1.0.1'
     mod_authors = 'QQQQWW'             // 请替换为您的实际名字
     mod_description = '我的第一个Minecraft模组'
 
